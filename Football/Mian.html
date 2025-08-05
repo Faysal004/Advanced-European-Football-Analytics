@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced European Football Analytics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+                    <div class="header">
+            <h1>⚽ Advanced Football Analytics</h1>
+            <p>Professional football analysis powered by Google Gemini</p>
+        </div>
+        
+        <div class="content">
+            <div class="api-keys-section">
+                <h3>🔑 API Configuration</h3>
+                <p>Configure your Google Gemini API key for AI-powered football analytics</p>
+                
+                <div class="api-input-group">
+                    <label for="geminiApiKey">Google Gemini API Key (Required):</label>
+                    <input type="password" id="geminiApiKey" placeholder="Your Gemini API key">
+                    <small>Get your key at: aistudio.google.com</small>
+                </div>
+            </div>
+
+            <div class="analysis-modes">
+                <h3>📊 Analysis Mode</h3>
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="general" onclick="selectMode('general')">
+                        🏟️ General Analysis
+                    </button>
+                    <button class="mode-btn" data-mode="young-talents" onclick="selectMode('young-talents')">
+                        🌟 Young Talents
+                    </button>
+                    <button class="mode-btn" data-mode="transfer-values" onclick="selectMode('transfer-values')">
+                        💰 Transfer Market
+                    </button>
+                    <button class="mode-btn" data-mode="live-stats" onclick="selectMode('live-stats')">
+                        📈 Live Statistics
+                    </button>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <label for="query">What would you like to analyze?</label>
+                <textarea id="query" placeholder="e.g., Compare the most promising young players under 21 in La Liga and their current market values"></textarea>
+                
+                <button class="analyze-btn" onclick="analyzeFootball()">
+                    🔍 Analyze Football Data
+                </button>
+            </div>
+
+            <div class="quick-analysis">
+                <h4>⚡ Quick Analysis Options:</h4>
+                <div class="quick-buttons">
+                    <button onclick="quickAnalysis('top-young-players')">Top Young Players (U21)</button>
+                    <button onclick="quickAnalysis('most-expensive-transfers')">Most Expensive Transfers 2024</button>
+                    <button onclick="quickAnalysis('emerging-talents')">Emerging Talents by League</button>
+                    <button onclick="quickAnalysis('market-trends')">Current Market Trends</button>
+                </div>
+            </div>
+
+            <div class="example-queries">
+                <h4>💡 Advanced Query Examples:</h4>
+                <ul>
+                    <li onclick="setQuery(this.textContent)">Analyze the top 10 most valuable players under 23 in Europe and their development potential</li>
+                    <li onclick="setQuery(this.textContent)">Compare transfer strategies of Manchester City vs PSG for young talents</li>
+                    <li onclick="setQuery(this.textContent)">Which young defenders in Serie A have the highest market value growth?</li>
+                    <li onclick="setQuery(this.textContent)">Analyze Bundesliga's most expensive signings and their performance impact</li>
+                    <li onclick="setQuery(this.textContent)">Find undervalued young players in La Liga with high potential</li>
+                </ul>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Analyzing football data with Google Gemini...</p>
+            </div>
+
+            <div class="error" id="error"></div>
+
+            <div class="data-sources" id="dataSources" style="display: none;">
+                <h4>📡 Data Sources Used:</h4>
+                <div class="sources-list" id="sourcesList"></div>
+            </div>
+
+            <div class="result" id="result">
+                <h3>📊 Analysis Results</h3>
+                <div class="result-tabs">
+                    <button class="tab-btn active" onclick="showTab('analysis')">Analysis</button>
+                    <button class="tab-btn" onclick="showTab('data')">Raw Data</button>
+                    <button class="tab-btn" onclick="showTab('charts')">Visualizations</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="analysisTab">
+                        <div class="result-content" id="resultContent"></div>
+                    </div>
+                    <div class="tab-pane" id="dataTab">
+                        <div class="raw-data" id="rawData"></div>
+                    </div>
+                    <div class="tab-pane" id="chartsTab">
+                        <div class="charts-container" id="chartsContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
