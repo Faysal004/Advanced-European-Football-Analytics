@@ -1,6 +1,6 @@
 // Global variables
 let currentMode = 'general';
-let geminiApiKey = 'AIzaSyD08u4YIqUVO3AMYoxvTHag_6Wori-WdtA'; // Pre-filled API key
+let geminiApiKey = '';
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -272,4 +272,5 @@ function formatCurrency(value) {
         return `€${(value / 1000).toFixed(0)}K`;
     }
     return `€${value}`;
+
 }
